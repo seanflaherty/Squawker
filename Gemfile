@@ -39,4 +39,6 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 # Trying to use bootstrap
+gem "therubyracer"
+gem "less-rails"
 gem 'twitter-bootstrap-rails'
