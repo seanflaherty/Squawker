@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  s: MyString
+  user_id: 1
+  squawk: MyString
+
+two:
+  s: MyString
+  user_id: 1
+  squawk: MyString
