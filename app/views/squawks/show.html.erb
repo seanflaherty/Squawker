@@ -1,14 +1,25 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Squawk -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @squawk.user_id %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:s) %>:</strong></dt>
+  <dd><%= @squawk.s %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+  <dd><%= @squawk.user_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:squawk) %>:</strong></dt>
+  <dd><%= @squawk.squawk %></dd>
+</dl>
 
-<p>
-  <strong>Squawk:</strong>
-  <%= @squawk.squawk %>
-</p>
-
-<%= link_to 'Edit', edit_squawk_path(@squawk) %> |
-<%= link_to 'Back', squawks_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              squawks_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_squawk_path(@squawk), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              squawk_path(@squawk),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
