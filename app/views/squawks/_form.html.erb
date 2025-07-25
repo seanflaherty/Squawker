@@ -1,25 +1,26 @@
-<%= form_for(@squawk) do |f| %>
-  <% if @squawk.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@squawk.errors.count, "error") %> prohibited this squawk from being saved:</h2>
-
-      <ul>
-      <% @squawk.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @squawk, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :s, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :s, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :user_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :user_id, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :squawk, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :squawk, :class => 'text_field' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :squawk %><br>
-    <%= f.text_field :squawk %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                squawks_path, :class => 'btn' %>
   </div>
 <% end %>
